@@ -3,9 +3,8 @@
 Plugin Name: CM On Demand Search And Replace
 Plugin URI: http://www.cminds.com/
 Description: Searches and replaces the words and phrases throughout the content.
-Version: 1.4.1
 Author: CreativeMindsSolutions
-Author URI: http://www.cminds.com/
+Version: 1.4.2
 */
 
 /**
@@ -14,9 +13,8 @@ Author URI: http://www.cminds.com/
  * @since 1.0
  */
 
-if( !defined('CMODSAR_VERSION') )
-{
-    define('CMODSAR_VERSION', '1.4.0');
+if( !defined('CMODSAR_VERSION') ) {
+    define('CMODSAR_VERSION', '1.4.2');
 }
 
 /**
@@ -24,8 +22,7 @@ if( !defined('CMODSAR_VERSION') )
  *
  * @since 1.0
  */
-if( !defined('CMODSAR_NAME') )
-{
+if( !defined('CMODSAR_NAME') ) {
     define('CMODSAR_NAME', 'CM On Demand Search And Replace');
 }
 
@@ -34,8 +31,7 @@ if( !defined('CMODSAR_NAME') )
  *
  * @since 1.0
  */
-if( !defined('CMODSAR_CANONICAL_NAME') )
-{
+if( !defined('CMODSAR_CANONICAL_NAME') ) {
     define('CMODSAR_CANONICAL_NAME', 'CM On Demand Search And Replace');
 }
 
@@ -44,8 +40,7 @@ if( !defined('CMODSAR_CANONICAL_NAME') )
  *
  * @since 1.0
  */
-if( !defined('CMODSAR_LICENSE_NAME') )
-{
+if( !defined('CMODSAR_LICENSE_NAME') ) {
     define('CMODSAR_LICENSE_NAME', 'CM On Demand Search And Replace');
 }
 
@@ -54,8 +49,7 @@ if( !defined('CMODSAR_LICENSE_NAME') )
  *
  * @since 1.0
  */
-if( !defined('CMODSAR_PLUGIN_FILE') )
-{
+if( !defined('CMODSAR_PLUGIN_FILE') ) {
     define('CMODSAR_PLUGIN_FILE', __FILE__);
 }
 
@@ -64,8 +58,7 @@ if( !defined('CMODSAR_PLUGIN_FILE') )
  *
  * @since 1.0
  */
-if( !defined('CMODSAR_RELEASE_NOTES') )
-{
+if( !defined('CMODSAR_RELEASE_NOTES') ) {
     define('CMODSAR_RELEASE_NOTES', '');
 }
 
@@ -74,8 +67,7 @@ if( !defined('CMODSAR_RELEASE_NOTES') )
  *
  * @since 1.0
  */
-if( !defined('CMODSAR_PLUGIN_DIR') )
-{
+if( !defined('CMODSAR_PLUGIN_DIR') ) {
     define('CMODSAR_PLUGIN_DIR', plugin_dir_path(__FILE__));
 }
 
@@ -84,8 +76,7 @@ if( !defined('CMODSAR_PLUGIN_DIR') )
  *
  * @since 1.0
  */
-if( !defined('CMODSAR_PLUGIN_URL') )
-{
+if( !defined('CMODSAR_PLUGIN_URL') ) {
     define('CMODSAR_PLUGIN_URL', plugin_dir_url(__FILE__));
 }
 
@@ -94,8 +85,7 @@ if( !defined('CMODSAR_PLUGIN_URL') )
  *
  * @since 1.0
  */
-if( !defined('CMODSAR_SLUG_NAME') )
-{
+if( !defined('CMODSAR_SLUG_NAME') ) {
     define('CMODSAR_SLUG_NAME', 'cm-on-demand-search-and-replace');
 }
 
@@ -104,8 +94,7 @@ if( !defined('CMODSAR_SLUG_NAME') )
  *
  * @since 1.0
  */
-if( !defined('CMODSAR_PLUGIN') )
-{
+if( !defined('CMODSAR_PLUGIN') ) {
     define('CMODSAR_PLUGIN', plugin_basename(__FILE__));
 }
 

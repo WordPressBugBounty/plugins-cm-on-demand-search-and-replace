@@ -1,7 +1,33 @@
 (function ($) {
 
     $(document).ready(function () {
-
+		
+		$('body').on( 'change', '.cmodsar_custom_postpage_new', function () {
+			var that = $(this);
+			if(that.val() == 'terms') {
+				that.closest('.cmodsar_location_input').find('select.cmodsar_custom_postpage_new_multiple').val(null).trigger('change');
+				that.closest('.cmodsar_location_input').find('select.cmodsar_custom_postpage_new_multiple').next('.select2-container').css('display', 'none');
+				that.closest('.cmodsar_location_input').find('select.cmodsar_custom_cats_new_multiple').next('.select2-container').css('display', 'inline-block');
+			} else {
+				that.closest('.cmodsar_location_input').find('select.cmodsar_custom_cats_new_multiple').val(null).trigger('change');
+				that.closest('.cmodsar_location_input').find('select.cmodsar_custom_cats_new_multiple').next('.select2-container').css('display', 'none');
+				that.closest('.cmodsar_location_input').find('select.cmodsar_custom_postpage_new_multiple').next('.select2-container').css('display', 'inline-block');
+			}
+		});
+		
+		$( 'select.cmodsar_custom_postpage_new_multiple' ).select2( {
+            width: 165,
+            placeholder: "Select posts/pages",
+            allowClear: true
+        } );
+		
+		$( 'select.cmodsar_custom_cats_new_multiple' ).select2( {
+            width: 165,
+            placeholder: "Select categories",
+            allowClear: true
+        } );
+		$('select.cmodsar_custom_cats_new_multiple').next('.select2-container').hide();
+			
         /*
          * CUSTOM REPLACEMENTS
          */
@@ -100,6 +126,20 @@
                 $('input.datepicker:visible').datetimepicker(datepicker_options);
 
                 $('div.cmodsar_place_disable_wrapper input[type="checkbox"]').trigger('cmodsar_checkCounts');
+				
+				$( 'select.cmodsar_custom_postpage_new_multiple' ).select2( {
+					width: 165,
+					placeholder: "Select posts/pages",
+					allowClear: true
+				} );
+				
+				$( 'select.cmodsar_custom_cats_new_multiple' ).select2( {
+					width: 165,
+					placeholder: "Select categories",
+					allowClear: true
+				} );
+				$('select.cmodsar_custom_cats_new_multiple').next('.select2-container').hide();
+		
             });
         });
 
@@ -157,6 +197,20 @@
                     $('.cmodsar_replacements_list').html(response);
                     $('.custom_loading').fadeOut('fast');
                     $('div.cmodsar_place_disable_wrapper input[type="checkbox"]').trigger('cmodsar_checkCounts');
+					
+					$( 'select.cmodsar_custom_postpage_new_multiple' ).select2( {
+						width: 165,
+						placeholder: "Select posts/pages",
+						allowClear: true
+					} );
+					
+					$( 'select.cmodsar_custom_cats_new_multiple' ).select2( {
+						width: 165,
+						placeholder: "Select categories",
+						allowClear: true
+					} );
+					$('select.cmodsar_custom_cats_new_multiple').next('.select2-container').hide();
+					
                 });
             } else {
                 $('.custom_loading').fadeOut('fast');
@@ -242,6 +296,20 @@
 
                     $('input.datepicker:visible').datetimepicker(datepicker_options);
                     $('div.cmodsar_place_disable_wrapper input[type="checkbox"]').trigger('cmodsar_checkCounts');
+					
+					$( 'select.cmodsar_custom_postpage_new_multiple' ).select2( {
+						width: 165,
+						placeholder: "Select posts/pages",
+						allowClear: true
+					} );
+					
+					$( 'select.cmodsar_custom_cats_new_multiple' ).select2( {
+						width: 165,
+						placeholder: "Select categories",
+						allowClear: true
+					} );
+					$('select.cmodsar_custom_cats_new_multiple').next('.select2-container').hide();
+				
                 });
             } else {
                 $('.custom_loading').fadeOut('fast');

@@ -4,12 +4,11 @@ Contributors: CreativeMindsSolutions
 Donate link: http://www.cminds.com/
 Tags: find, search replace, database, search and replace, replace
 Requires at least: 5.4.0
-Tested up to: 6.6
-Stable tag: 1.4.1
+Tested up to: 6.7
+Stable tag: 1.4.2
 Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
 
 Search and replace words, phrases, and HTML within your WordPress site's content.
 
@@ -51,12 +50,15 @@ The [Search and Replace Plugin Premium edition](https://www.cminds.com/wordpress
 
 > [Pro Version Detailed Features List](https://www.cminds.com/wordpress-plugins-library/search-and-replace-plugin-for-wordpress/#features)
 
-> * Define search/replace rules for comments, site and page titles, content and excerpts
+> * Define search/replace rules for comments, site and page titles, content, excerpts and images
 > * Support custom posts types
 > * Support Regex rules
 > * Support search replace based on time frames
 > * Support search replace only on specific posts
+> * Support search replace only on specific post categories, tags or other taxonomies
 > * Rules Management - pause, edit, delete and easily change the order of rules
+> * Includes log for changes that are made on the fly
+> * Includes log for permanent changes in the database
 > * Import and export rules
 > * Search within rules
 > * Frontend widget to turn rules on and off
@@ -94,8 +96,12 @@ List of all [WordPress Plugins](https://www.cminds.com) by CreativeMinds
 
 == Changelog ==
 
+= 1.4.2 =
+Release Date: 06 Nov 2024
+* Added pro version settings as a showcase
+
 = 1.4.1 =
-Release Date: 9 Oct 2024
+Release Date: 09 Oct 2024
 * Fixed security issues
 
 = 1.4.0 =

@@ -7,6 +7,12 @@
 	<?php
 	echo do_shortcode( '[cminds_free_activation id="cmodsar"]' );
 	?>
+	<style type="text/css">
+	.onlyinpro * { color: #aaa !important; }
+	.onlyinpro { color: #aaa !important; }
+	.onlyinpro.hide { display: none !important; }
+	.onlyinprov.hide { display: none !important; }
+	</style>
     <form method="post">
 		<?php wp_nonce_field( 'cmodsar_cleanup_form_nonce', 'cmodsar_cleanup_form_nonce' ); ?>
         <div>
@@ -36,21 +42,23 @@
 		CMODSAR_Base::renderSettingsTabsControls();
 		CMODSAR_Base::renderSettingsTabs();
 		?>
-        <div id="tabs-55">
+        <div id="tabs-0">
             <div class='block'>
-              <table class="form-table"><tbody>
+				<table class="form-table" style="margin-top:0px;">
+					<tbody>
                         <tr>
-                            <td><?php echo do_shortcode( '[cminds_upgrade_box id="cmodsar"]' ); ?></td>
+                            <td style="padding:0px;"><?php echo do_shortcode( '[cminds_free_guide id="cmodsar"]' ); ?></td>
                         </tr>
                     </tbody>
 				</table>
             </div>
         </div>
-        <div id="tabs-99">
+		<div id="tabs-99">
             <div class='block'>
-                 <table class="form-table"><tbody>
+				<table class="form-table" style="margin-top:0px;">
+					<tbody>
                         <tr>
-                            <td><?php echo do_shortcode( '[cminds_free_guide id="cmodsar"]' ); ?></td>
+                            <td style="padding:0px;"><?php echo do_shortcode( '[cminds_upgrade_box id="cmodsar"]' ); ?></td>
                         </tr>
                     </tbody>
 				</table>

@@ -1,7 +1,6 @@
 <?php
-
-class CMODSAR_Base
-{
+class CMODSAR_Base {
+	
     protected static $filePath = '';
     protected static $cssPath = '';
     protected static $jsPath = '';
@@ -10,18 +9,14 @@ class CMODSAR_Base
 
     const PAGE_YEARLY_OFFER = 'https://www.cminds.com/store/cm-wordpress-plugins-yearly-membership/';
 
-    public static function init()
-    {
+    public static function init() {
+		
         self::setupConstants();
-
         self::includeFiles();
-
         self::initFiles();
-
         self::addOptions();
 
-        if( empty(self::$calledClassName) )
-        {
+        if( empty(self::$calledClassName) ) {
             self::$calledClassName = __CLASS__;
         }
 
@@ -46,34 +41,27 @@ class CMODSAR_Base
     /**
      * Include the files
      */
-    public static function includeFiles()
-    {
+    public static function includeFiles() {
         do_action('cmodsar_include_files_before');
-
         include_once CMODSAR_PLUGIN_DIR . "/package/cminds-free.php";
         include_once CMODSAR_PLUGIN_DIR . '/classes/Replacement.php';
         include_once CMODSAR_PLUGIN_DIR . "functions.php";
-
         do_action('cmodsar_include_files_after');
     }
 
     /**
      * Initialize the files
      */
-    public static function initFiles()
-    {
+    public static function initFiles() {
         do_action('cmodsar_init_files_before');
-
         CMODSAR_Replacement::init();
-
         do_action('cmodsar_init_files_after');
     }
 
     /**
      * Adds options
      */
-    public static function addOptions()
-    {
+    public static function addOptions() {
         /*
          * General settings
          */
@@ -88,59 +76,66 @@ class CMODSAR_Base
      * @since 1.1
      * @return void
      */
-    public static function setupConstants()
-    {
-        if( !defined('CMODSAR_MENU_OPTION') )
-        {
+    public static function setupConstants() {
+        if( !defined('CMODSAR_MENU_OPTION') ) {
             define('CMODSAR_MENU_OPTION', 'cmodsar_menu_options');
         }
-
         define('CMODSAR_ABOUT_OPTION', 'outputAbout');
         define('CMODSAR_SETTINGS_OPTION', 'cmodsar_settings');
+		define( 'CMODSAR_EXPORT_IMPORT_OPTION', 'export-import' );
         define('CMODSAR_PRO_OPTION', 'cmodsar_pro');
-
         do_action('cmodsar_setup_constants_after');
     }
 
-    public static function cmodsar_admin_menu()
-    {
+    public static function cmodsar_admin_menu() {
         global $submenu;
         add_menu_page('Search And Replace', CMODSAR_NAME, 'edit_posts', CMODSAR_SETTINGS_OPTION, '', CMODSAR_PLUGIN_URL . 'assets/css/images/cm-custom-cm-search-and-replace-icon.png');
 
         add_submenu_page(CMODSAR_SETTINGS_OPTION, 'Settings', 'Settings', 'manage_options', CMODSAR_SETTINGS_OPTION, array(self::$calledClassName, 'outputOptions'));
+		
+		add_submenu_page( CMODSAR_SETTINGS_OPTION, 'Export/Import', 'Export/Import', 'manage_options', CMODSAR_EXPORT_IMPORT_OPTION, array( self::$calledClassName, 'outputExport' ) );
 
         $customItemsPerPage = get_user_meta(get_current_user_id(), 'edit_custom_per_page', true);
-        if( $customItemsPerPage && intval($customItemsPerPage) > 100 )
-        {
+        if( $customItemsPerPage && intval($customItemsPerPage) > 100 ) {
             update_user_meta(get_current_user_id(), 'edit_custom_per_page', 100);
         }
 
         add_filter('views_edit-custom', array(self::$calledClassName, 'cmodsar_filter_admin_nav'), 10, 1);
     }
-
+	
+	public static function outputExport() {
+		ob_start();
+		require CMODSAR_PLUGIN_DIR . 'views/backend/admin_export.php';
+		$content = ob_get_contents();
+		ob_end_clean();
+		require CMODSAR_PLUGIN_DIR . 'views/backend/admin_template.php';
+	}
+	
     /**
      * Function enqueues the scripts and styles for the admin Settings view
      * @global type $parent_file
      * @return type
      */
-    public static function cmodsar_custom_admin_settings_scripts()
-    {
+    public static function cmodsar_custom_admin_settings_scripts() {
         global $parent_file;
-        if( CMODSAR_SETTINGS_OPTION !== $parent_file )
-        {
+        if( CMODSAR_SETTINGS_OPTION !== $parent_file ) {
             return;
         }
-
+		
         wp_enqueue_script('jquery-ui-core');
         wp_enqueue_script('jquery-ui-tooltip');
         wp_enqueue_script('jquery-ui-tabs');
 
         wp_enqueue_style('jqueryUIStylesheet', self::$cssPath . 'jquery-ui-1.10.3.custom.css');
-        wp_enqueue_style('cm-search-and-replace', self::$cssPath . 'cm-search-and-replace.css');
+		
+		wp_enqueue_style('settings-select2-css', self::$cssPath . 'select2.min.css');
+		wp_enqueue_script('settings-select2-js', self::$jsPath . 'select2.min.js');
+		
+        wp_enqueue_style('cm-search-and-replace', self::$cssPath . 'cm-search-and-replace.css', ['settings-select2-css']);
         wp_enqueue_style('cm-search-and-replace-timepicker-css', self::$cssPath . 'jquery-ui-timepicker-addon.min.css');
 
         wp_enqueue_script('cm-search-and-replace-timepicker-js', self::$jsPath . 'jquery-ui-timepicker-addon.min.js', array('jquery-ui-core' ,'jquery-ui-datepicker', 'jquery-ui-slider'));
-        wp_enqueue_script('cm-search-and-replace-admin-js', self::$jsPath . 'cm-search-and-replace-admin.js', array('cm-search-and-replace-timepicker-js'));
+        wp_enqueue_script('cm-search-and-replace-admin-js', self::$jsPath . 'cm-search-and-replace-admin.js', array('cm-search-and-replace-timepicker-js', 'settings-select2-js'));
 
         $searchAndReplace['ajaxurl'] = admin_url('admin-ajax.php');
         wp_localize_script('cm-search-and-replace-admin-js', 'cmodsar_data', $searchAndReplace);
@@ -151,8 +146,7 @@ class CMODSAR_Base
      * @global type $typenow
      * @return type
      */
-    public static function cmodsar_custom_admin_edit_scripts()
-    {
+    public static function cmodsar_custom_admin_edit_scripts() {
         global $typenow;
 
         $defaultPostTypes = get_option('cmodsar_allowed_terms_metabox_all_post_types') ? get_post_types() : array('post', 'page');
@@ -173,8 +167,7 @@ class CMODSAR_Base
      * @param type $views
      * @return string
      */
-    public static function cmodsar_filter_admin_nav($views)
-    {
+    public static function cmodsar_filter_admin_nav($views) {
         global $submenu, $plugin_page;
         $scheme = is_ssl() ? 'https://' : 'http://';
         $adminUrl = str_replace($scheme . $_SERVER['HTTP_HOST'], '', admin_url());
@@ -210,19 +203,16 @@ class CMODSAR_Base
      * @global string $submenu
      * @global type $plugin_page
      */
-    public static function cmodsar_showNav()
-    {
+    public static function cmodsar_showNav() {
         global $submenu, $plugin_page;
         $submenus = array();
         $scheme = is_ssl() ? 'https://' : 'http://';
         $adminUrl = str_replace($scheme . $_SERVER['HTTP_HOST'], '', admin_url());
         $currentUri = str_replace($adminUrl, '', $_SERVER['REQUEST_URI']);
 
-        if( isset($submenu[CMODSAR_SETTINGS_OPTION]) )
-        {
+        if( isset($submenu[CMODSAR_SETTINGS_OPTION]) ) {
             $thisMenu = $submenu[CMODSAR_SETTINGS_OPTION];
-            foreach($thisMenu as $item)
-            {
+            foreach($thisMenu as $item) {
                 $slug = $item[2];
                 $isCurrent = ($slug == $plugin_page || strpos($item[2], '.php') === strpos($currentUri, '.php'));
                 $isExternalPage = strpos($item[2], 'http') !== FALSE;
@@ -243,12 +233,9 @@ class CMODSAR_Base
      * Adds a notice about wp version lower than required 3.3
      * @global type $wp_version
      */
-    public static function cmodsar_custom_admin_notice_wp33()
-    {
+    public static function cmodsar_custom_admin_notice_wp33() {
         global $wp_version;
-
-        if( version_compare($wp_version, '3.3', '<') )
-        {
+        if( version_compare($wp_version, '3.3', '<') ) {
             $message = sprintf(CMODSAR_Base::__('%s requires Wordpress version 3.3 or higher to work properly.'), CMODSAR_NAME);
             cminds_show_message($message, true);
         }
@@ -258,12 +245,9 @@ class CMODSAR_Base
      * Adds a notice about mbstring not being installed
      * @global type $wp_version
      */
-    public static function cmodsar_custom_admin_notice_mbstring()
-    {
+    public static function cmodsar_custom_admin_notice_mbstring() {
         $mb_support = function_exists('mb_strtolower');
-
-        if( !$mb_support )
-        {
+        if( !$mb_support ) {
             $message = sprintf(CMODSAR_Base::__('%s since version 2.6.0 requires "mbstring" PHP extension to work! '), CMODSAR_NAME);
             $message .= '<a href="http://www.php.net/manual/en/mbstring.installation.php" target="_blank">(' . CMODSAR_Base::__('Installation instructions.') . ')</a>';
             cminds_show_message($message, true);
@@ -308,41 +292,35 @@ class CMODSAR_Base
         if( isset($post['cmodsar_pluginCleanup']) ) {
 			if ( wp_verify_nonce( $_POST['cmodsar_cleanup_form_nonce'], 'cmodsar_cleanup_form_nonce' ) ) {
 				self::_cleanup();
-				$messages = 'CM On Demand Search And Replace data  have been removed from the database.';
+				$messages = 'CM On Demand Search And Replace data have been removed from the database.';
 			}
         }
 
         return array('messages' => $messages);
     }
 
-    public static function outputPro()
-    {
+    public static function outputPro() {
         ob_start();
         require CMODSAR_PLUGIN_DIR . 'views/backend/admin_pro.php';
         $content = ob_get_contents();
         ob_end_clean();
-
         require CMODSAR_PLUGIN_DIR . 'views/backend/admin_template.php';
     }
 
-    public static function outputAbout()
-    {
+    public static function outputAbout() {
         ob_start();
         require CMODSAR_PLUGIN_DIR . 'views/backend/admin_about.php';
         $content = ob_get_contents();
         ob_end_clean();
-
         require CMODSAR_PLUGIN_DIR . 'views/backend/admin_template.php';
     }
 
     /**
      * Displays the options screen
      */
-    public static function outputOptions()
-    {
+    public static function outputOptions() {
         $result = self::saveOptions();
         $messages = $result['messages'];
-
         ob_start();
         require CMODSAR_PLUGIN_DIR . 'views/backend/admin_settings.php';
         $content = ob_get_contents();
@@ -350,8 +328,7 @@ class CMODSAR_Base
         require CMODSAR_PLUGIN_DIR . 'views/backend/admin_template.php';
     }
 
-    public static function cmodsar_warn_on_upgrade()
-    {
+    public static function cmodsar_warn_on_upgrade() {
         ?>
         <div style="margin-top: 1em"><span style="color: red; font-size: larger">
                 STOP!</span> Do <em>not</em> click &quot;update automatically&quot; as you will be <em>downgraded</em> to the free version of <?php echo CMODSAR_NAME; ?>.
@@ -367,19 +344,15 @@ class CMODSAR_Base
      * @param type $return
      * @return string
      */
-    public static function renderSettingsTabs($return = false)
-    {
+    public static function renderSettingsTabs($return = false) {
         $content = '';
         $settingsTabsArrayBase = array();
 
         $settingsTabsArray = apply_filters('cmodsar-settings-tabs-array', $settingsTabsArrayBase);
 
-        if( $settingsTabsArray )
-        {
-            foreach($settingsTabsArray as $tabKey => $tabLabel)
-            {
+        if( $settingsTabsArray ) {
+            foreach($settingsTabsArray as $tabKey => $tabLabel) {
                 $filterName = 'cmodsar-custom-settings-tab-content-' . $tabKey;
-
                 $content .= '<div id="tabs-' . $tabKey . '">';
                 $tabContent = apply_filters($filterName, '');
                 $content .= $tabContent;
@@ -387,8 +360,7 @@ class CMODSAR_Base
             }
         }
 
-        if( $return )
-        {
+        if( $return ) {
             return $content;
         }
         echo $content;
@@ -400,30 +372,26 @@ class CMODSAR_Base
      * @param type $return
      * @return string
      */
-    public static function renderSettingsTabsControls($return = false)
-    {
+    public static function renderSettingsTabsControls($return = false) {
         $content = '';
-        $settingsTabsArrayBase = array(
-           '55' => 'Upgrade',
-            '99' => 'Installation Tutorial',
+        $settingsTabsArrayBase = array(           
+           '0' => 'Installation Guide',
+		   '99' => 'Upgrade',
         );
 
         $settingsTabsArray = apply_filters('cmodsar-settings-tabs-array', $settingsTabsArrayBase);
 
         ksort($settingsTabsArray);
 
-        if( $settingsTabsArray )
-        {
+        if( $settingsTabsArray ) {
             $content .= '<ul>';
-            foreach($settingsTabsArray as $tabKey => $tabLabel)
-            {
+            foreach($settingsTabsArray as $tabKey => $tabLabel) {
                 $content .= '<li><a href="#tabs-' . $tabKey . '">' . $tabLabel . '</a></li>';
             }
             $content .= '</ul>';
         }
 
-        if( $return )
-        {
+        if( $return ) {
             return $content;
         }
         echo $content;
@@ -434,8 +402,7 @@ class CMODSAR_Base
      *
      * @return string
      */
-    protected static function _cleanup($force = true)
-    {
+    protected static function _cleanup($force = true) {
         /*
          * Remove the data from the other tables
          */
@@ -446,14 +413,12 @@ class CMODSAR_Base
          */
         $optionNames = wp_load_alloptions();
 
-        function cmodsar_get_the_option_names($k)
-        {
+        function cmodsar_get_the_option_names($k) {
             return strpos($k, 'cmodsar_') === 0;
         }
 
         $options_names = array_filter(array_keys($optionNames), 'cmodsar_get_the_option_names');
-        foreach($options_names as $optionName)
-        {
+        foreach($options_names as $optionName) {
             delete_option($optionName);
         }
     }
@@ -461,8 +426,7 @@ class CMODSAR_Base
     /**
      * Plugin activation
      */
-    protected static function _activate()
-    {
+    protected static function _activate() {
         do_action('cmodsar_do_activate');
     }
 
@@ -473,20 +437,16 @@ class CMODSAR_Base
      * @param type $networkwide
      * @return type
      */
-    public static function _install($networkwide)
-    {
+    public static function _install($networkwide) {
         global $wpdb;
 
-        if( function_exists('is_multisite') && is_multisite() )
-        {
+        if( function_exists('is_multisite') && is_multisite() ) {
             // check if it is a network activation - if so, run the activation function for each blog id
-            if( $networkwide )
-            {
+            if( $networkwide ) {
                 $old_blog = $wpdb->blogid;
                 // Get all blog ids
                 $blogids = $wpdb->get_col($wpdb->prepare("SELECT blog_id FROM {$wpdb->blogs}"));
-                foreach($blogids as $blog_id)
-                {
+                foreach($blogids as $blog_id) {
                     switch_to_blog($blog_id);
                     self::_activate();
                 }
@@ -504,8 +464,7 @@ class CMODSAR_Base
      * @param string $msg
      * @return string
      */
-    public static function __($msg)
-    {
+    public static function __($msg) {
         return __($msg, CMODSAR_SLUG_NAME);
     }
 

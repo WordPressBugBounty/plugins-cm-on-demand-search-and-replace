@@ -171,6 +171,17 @@
     </tr>
     <tr>
         <td style="width:28%; border-bottom: 1px solid #c0c0c0; border-right: 1px solid #c0c0c0;">
+            Categories and Tags Support
+            <span class="dashicons dashicons-info-outline cminds-package-show-tooltip" style="color:green"
+                  title="Apply replacement rules to posts of selected categories, tags or other custom taxonomies."></span>
+        </td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-no" style="color:red"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+    </tr>
+    <tr>
+        <td style="width:28%; border-bottom: 1px solid #c0c0c0; border-right: 1px solid #c0c0c0;">
             Modify or Remove Content
             <span class="dashicons dashicons-info-outline cminds-package-show-tooltip" style="color:green"
                   title="This WordPress editor plugin allows you to modify search and remove the content without replacing it."></span></td>
@@ -225,6 +236,26 @@
         <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
         <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
     </tr>
+    <tr>
+        <td style="width:28%; border-bottom: 1px solid #c0c0c0; border-right: 1px solid #c0c0c0;">
+            On-demand Preview Log
+            <span class="dashicons dashicons-info-outline cminds-package-show-tooltip" style="color:green"
+                  title="Preview the changes that are made on the fly for chosen posts and pages."></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-no" style="color:red"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+    </tr>
+    <tr>
+        <td style="width:28%; border-bottom: 1px solid #c0c0c0; border-right: 1px solid #c0c0c0;">
+            Log of Permanent DB Changes
+            <span class="dashicons dashicons-info-outline cminds-package-show-tooltip" style="color:green"
+                  title="Track all changes that were implemented to the database for chosen posts and pages."></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-no" style="color:red"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+    </tr>
     <tr style="height:50px">
         <td style="width:28%; border-bottom: 1px solid #c0c0c0; font-size:16px;" colspan="5">
             <strong>RESTRICTION FEATURES</strong>
@@ -234,7 +265,7 @@
         <td style="width:28%; border-bottom: 1px solid #c0c0c0; border-right: 1px solid #c0c0c0;">
             All WordPress Content Types
             <span class="dashicons dashicons-info-outline cminds-package-show-tooltip" style="color:green"
-                  title="Define search and replace rules for comments, site and page titles, content and excerpts."></span>
+                  title="Define search and replace rules for comments, site and page titles, content, excerpts and images."></span>
         </td>
         <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-no" style="color:red"></span></td>
         <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>

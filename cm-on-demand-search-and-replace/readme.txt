@@ -5,7 +5,7 @@ Donate link: http://www.cminds.com/
 Tags: find, search replace, database, search and replace, replace
 Requires at least: 5.4.0
 Tested up to: 6.7
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -95,6 +95,10 @@ List of all [WordPress Plugins](https://www.cminds.com) by CreativeMinds
 > [More FAQ's](https://www.cminds.com/wordpress-plugins-library/purchase-cm-on-demand-search-and-replace-plugin-for-wordpress/#plugin-faq)
 
 == Changelog ==
+
+= 1.4.3 =
+Release Date: 19 Nov 2024
+* Fixed security (medium) issue
 
 = 1.4.2 =
 Release Date: 06 Nov 2024

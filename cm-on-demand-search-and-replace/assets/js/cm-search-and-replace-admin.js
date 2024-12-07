@@ -106,13 +106,12 @@
             $('.custom_loading').fadeIn('fast');
 
             $.post(window.cmodsar_data.ajaxurl, data, function (response) {
-                $('.cmodsar_replacements_list').html(response);
+                $('.cmodsar-wrapper-new-old').html(response);
                 $('.custom_loading').fadeOut('fast');
-
 
                 replace_from.val('');
                 replace_to.val('');
-                replace_case.val('');
+                replace_case.prop('checked', false);
                 replace_regex.val('');
                 replace_pause.val('');
 
@@ -144,12 +143,9 @@
         });
 
         $(document).on('click', '.cmodsar-custom-delete-restriction', function (e, attr) {
-            if (typeof attr !== 'undefined' && attr.silent)
-            {
+            if (typeof attr !== 'undefined' && attr.silent) {
                 var parentRow = $(this).closest('tr').remove();
-            }
-            else
-            {
+            } else {
                 if (window.window.confirm('Do you really want to delete this restriction row?')) {
                     var parentRow = $(this).closest('tr').remove();
                 }
@@ -194,7 +190,7 @@
                 };
                 $('.custom_loading').fadeIn('fast');
                 $.post(window.cmodsar_data.ajaxurl, data, function (response) {
-                    $('.cmodsar_replacements_list').html(response);
+                    $('.cmodsar-wrapper-new-old').html(response);
                     $('.custom_loading').fadeOut('fast');
                     $('div.cmodsar_place_disable_wrapper input[type="checkbox"]').trigger('cmodsar_checkCounts');
 					
@@ -291,7 +287,7 @@
                 };
                 $('.custom_loading').fadeIn('fast');
                 $.post(window.cmodsar_data.ajaxurl, data, function (response) {
-                    $('.cmodsar_replacements_list').html(response);
+                    $('.cmodsar-wrapper-new-old').html(response);
                     $('.custom_loading').fadeOut('fast');
 
                     $('input.datepicker:visible').datetimepicker(datepicker_options);
@@ -351,17 +347,12 @@
          */
         $(document).on('click showHideInit', '.cm-showhide-handle', function () {
             var $this = $(this), $parent, $content;
-
             $parent = $this.parent();
             $content = $this.siblings('.cm-showhide-content');
-
-            if (!$parent.hasClass('closed'))
-            {
+            if (!$parent.hasClass('closed')) {
                 $content.hide();
                 $parent.addClass('closed');
-            }
-            else
-            {
+            } else {
                 $content.show();
                 $parent.removeClass('closed');
             }
@@ -391,18 +382,12 @@
         }
 
         $('.cmodsar_field_help_container').each(function () {
-            var newElement,
-                    element = $(this);
-
+            var newElement, element = $(this);
             newElement = $('<div class="cmodsar_field_help"></div>');
             newElement.attr('title', element.html());
-
-            if (element.siblings('th').length)
-            {
+            if (element.siblings('th').length) {
                 element.siblings('th').append(newElement);
-            }
-            else
-            {
+            } else {
                 element.siblings('*').append(newElement);
             }
             element.remove();
@@ -423,17 +408,86 @@
             },
             close: function (event, ui) {
                 ui.tooltip.hover(
-                        function () {
-                            $(this).stop(true).fadeTo(400, 1);
-                        },
-                        function () {
-                            $(this).fadeOut("400", function () {
-                                $(this).remove();
-                            });
-                        });
+					function () {
+						$(this).stop(true).fadeTo(400, 1);
+					},
+					function () {
+						$(this).fadeOut("400", function () {
+							$(this).remove();
+						});
+					});
             }
         });
-
+		
+		$(document).on('click', '.cmodsar_addrule', function () {
+			var that = $(this);
+			if(that.next().find('.cmodsar-custom-replacement-add').hasClass('hide') == true) {
+				that.next().find('.cmodsar-custom-replacement-add').slideDown(500).removeClass('hide').addClass('show');
+			} else {
+				that.next().find('.cmodsar-custom-replacement-add').slideUp(500, function () {
+					that.next().find('.cmodsar-custom-replacement-add').removeClass('show').addClass('hide');
+				});
+			}
+		});
+		
+		$(document).on('click', '.cmodsar_expand_collapse_btn', function () {
+			var that = $(this);
+			var collapse_text = 'Collapse Additional Settings (&#8593;)';
+			var expand_text = 'Expand Additional Settings (&#8595;)';
+			if(that.closest('.cmodsar-wrapper-row').find('.cmodsar_expand_collapse').hasClass('hide') == true) {
+				that.closest('.cmodsar-wrapper-row').find('.cmodsar_expand_collapse').slideDown(500).removeClass('hide').addClass('show');
+				that.html(collapse_text);
+			} else {
+				that.closest('.cmodsar-wrapper-row').find('.cmodsar_expand_collapse').slideUp(500, function () {
+					that.closest('.cmodsar-wrapper-row').find('.cmodsar_expand_collapse').removeClass('show').addClass('hide');
+					that.html(expand_text);
+				});
+			}
+		});
+		
+		$(document).on('change', '.select_posts_pages_categories_tags', function () {
+			var that = $(this);
+			if(that.val() == 'include' || that.val() == 'exclude') {
+				$('.select_categories_tags').hide();
+				$('.select_posts_pages').show();
+			} else if(that.val() == 'categories_tags') {
+				$('.select_posts_pages').hide();
+				$('.select_categories_tags').show();
+			} else if(that.val() == 'all') {
+				$('.select_posts_pages').hide();
+				$('.select_categories_tags').hide();
+			} else {
+				$('.select_posts_pages').hide();
+				$('.select_categories_tags').hide();
+			}
+		});
+				
+		$('.cmodsar_help').tooltip({
+            show: {
+                effect: "slideDown",
+                delay: 100
+            },
+            position: {
+                my: "left top",
+                at: "right top"
+            },
+            content: function () {
+                var element = $( this );
+                return element.attr( 'title' );
+            },
+            close: function ( event, ui ) {
+                ui.tooltip.hover(
+                    function () {
+                        $( this ).stop( true ).fadeTo( 400, 1 );
+                    },
+                    function () {
+                        $( this ).fadeOut( "400", function () {
+                            $( this ).remove();
+                        } );
+                    } );
+            }
+        });
+		
     });
 
 })(jQuery);

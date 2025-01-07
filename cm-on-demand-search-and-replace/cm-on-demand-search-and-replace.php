@@ -4,7 +4,7 @@ Plugin Name: CM On Demand Search And Replace
 Plugin URI: http://www.cminds.com/
 Description: Searches and replaces the words and phrases throughout the content.
 Author: CreativeMindsSolutions
-Version: 1.4.4
+Version: 1.4.5
 */
 
 /**
@@ -14,7 +14,7 @@ Version: 1.4.4
  */
 
 if( !defined('CMODSAR_VERSION') ) {
-    define('CMODSAR_VERSION', '1.4.4');
+    define('CMODSAR_VERSION', '1.4.5');
 }
 
 /**

@@ -379,20 +379,18 @@ class CMODSAR_Replacement {
 			$replacements = array();
 		}
 		
-		$display_replacements = $replacements;
-		
 		if(isset($post['nonce']) && wp_verify_nonce($post['nonce'], 'update-options')) {
 			$replace_from = trim($post[ 'replace_from' ]);
 			$replace[ 'from' ]	 = !empty( $replace_from ) ? $replace_from : '';
 			$replace[ 'to' ]	 = !empty( $post[ 'replace_to' ] ) ? $post[ 'replace_to' ] : '';
 			$replace[ 'case' ]	 = !empty( $post[ 'replace_case' ] ) ? 1 : 0;
-			$replacements[] = $replace;
-			array_unshift($display_replacements, $replace);
+			//$replacements[] = $replace;
+			array_unshift($replacements, $replace);
 			update_option( 'cmodsar_replacements', $replacements );
 		}
 
 		//self::outputReplacements( $replacements );
-		self::outputReplacementsNew( $display_replacements );
+		self::outputReplacementsNew( $replacements );
 		die();
 	}
 

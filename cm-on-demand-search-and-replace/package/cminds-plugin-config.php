@@ -5,7 +5,7 @@ $plugin_compare_table = ob_get_contents();
 ob_end_clean();
 $cminds_plugin_config = array(
 	'plugin-is-pro'						=> false,
-	'plugin-version'					=> '1.4.6',
+	'plugin-version'					=> '1.4.7',
 	'plugin-abbrev'						=> 'cmodsar',
 	'plugin-short-slug'					=> 'search-and-replace',
 	'plugin-parent-short-slug'			=> '',

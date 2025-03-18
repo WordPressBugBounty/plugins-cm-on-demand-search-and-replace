@@ -455,7 +455,7 @@
                         </div>
 
                         <div class="plugins-body item">
-                            <p><strong>NEW:</strong> Streamline keyword management and boost the SEO of your website with this one-of-a-kind WordPress SEO plugin!.</p>
+                            <p><strong>NEW:</strong> Streamline keyword management and boost the SEO of your website with this one-of-a-kind WordPress SEO plugin!</p>
                         </div>
 
                         <div class="plugins-action item">
@@ -528,11 +528,11 @@
                         </div>
 
                         <div class="plugins-price item">
-                            <span>From $36</span>
+                            <span>From $39</span>
                         </div>
 
                         <div class="plugins-body item">
-                            <p><strong>CM Tooltip Glossary</strong> - The best glossary managment tool for WordPress</p>
+                            <p><strong>CM Tooltip Glossary Pro</strong> - The best glossary managment tool for WordPress</p>
                         </div>
 
                         <div class="plugins-action item">
@@ -543,13 +543,13 @@
                     <!-- CM Answers Plugin -->
                     <div class="plugins-table">
                         <div class="plugins-img item">
-                            <a href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/answers'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank">
+                            <a href="<?php echo  'https://www.cminds.com/cm-answer-store-page-content/'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank">
                                 <img class="img" src="<?php echo plugin_dir_url( __FILE__ ); ?>answers.png">
                             </a>
                         </div>
 
                         <div class="plugins-price item">
-                            <span>$39</span>
+                            <span>$49</span>
                         </div>
 
                         <div class="plugins-body item">
@@ -557,7 +557,7 @@
                         </div>
 
                         <div class="plugins-action item">
-                            <a class="button-success" href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/answers'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank" >More Info</a>
+                            <a class="button-success" href="<?php echo  'https://www.cminds.com/cm-answer-store-page-content/'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank" >More Info</a>
                         </div>
                     </div>
 
@@ -570,7 +570,7 @@
                         </div>
 
                         <div class="plugins-price item">
-                            <span>$39</span>
+                            <span>$49</span>
                         </div>
 
                         <div class="plugins-body item">
@@ -585,13 +585,13 @@
                     <!--  Pop Up Manager Plugin -->
                     <div class="plugins-table">
                         <div class="plugins-img item">
-                            <a href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/cm-pop-up-banners-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank">
+                            <a href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/pop-up-banners-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank">
                                 <img class="img" src="<?php echo plugin_dir_url( __FILE__ ); ?>popup.png">
                             </a>
                         </div>
 
                         <div class="plugins-price item">
-                            <span>$29</span>
+                            <span>$39</span>
                         </div>
 
                         <div class="plugins-body item">
@@ -599,7 +599,7 @@
                         </div>
 
                         <div class="plugins-action item">
-                            <a class="button-success" href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/cm-pop-up-banners-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank" >More Info</a>
+                            <a class="button-success" href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/pop-up-banners-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank" >More Info</a>
                         </div>
                     </div>
 
@@ -612,7 +612,7 @@
                         </div>
 
                         <div class="plugins-price item">
-                            <span>$39</span>
+                            <span>$49</span>
                         </div>
 
                         <div class="plugins-body item">
@@ -627,13 +627,13 @@
                     <!--  Video Lessons  Plugin -->
                     <div class="plugins-table">
                         <div class="plugins-img item">
-                            <a href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/purchase-cm-video-lessons-manager-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank">
+                            <a href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/video-lessons-manager-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank">
                                 <img class="img" src="<?php echo plugin_dir_url( __FILE__ ); ?>videolessons.png">
                             </a>
                         </div>
 
                         <div class="plugins-price item">
-                            <span>$39</span>
+                            <span>$49</span>
                         </div>
 
                         <div class="plugins-body item">
@@ -641,7 +641,7 @@
                         </div>
 
                         <div class="plugins-action item">
-                            <a class="button-success" href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/purchase-cm-video-lessons-manager-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank" >More Info</a>
+                            <a class="button-success" href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/video-lessons-manager-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank" >More Info</a>
                         </div>
                     </div>
 
@@ -670,13 +670,13 @@
                     <!--  Search and Replace  Plugin -->
                     <div class="plugins-table">
                         <div class="plugins-img item">
-                            <a href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/purchase-cm-on-demand-search-and-replace-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank">
+                            <a href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/search-and-replace-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank">
                                 <img class="img" src="<?php echo plugin_dir_url( __FILE__ ); ?>searchreplace.png">
                             </a>
                         </div>
 
                         <div class="plugins-price item">
-                            <span>$29</span>
+                            <span>$49</span>
                         </div>
 
                         <div class="plugins-body item">
@@ -684,20 +684,20 @@
                         </div>
 
                         <div class="plugins-action item">
-                            <a class="button-success" href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/purchase-cm-on-demand-search-and-replace-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank" >More Info</a>
+                            <a class="button-success" href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/search-and-replace-plugin-for-wordpress'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank" >More Info</a>
                         </div>
                     </div>
 
                     <!--  Cm Map Routes Plugin -->
                     <div class="plugins-table">
                         <div class="plugins-img item">
-                            <a href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/maps-routes-manager-plugin-for-wordpress-by-creativeminds'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank">
+                            <a href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/google-maps-routes-manager-plugin-for-wordpress-by-creativeminds'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank">
                                 <img class="img" src="<?php echo plugin_dir_url( __FILE__ ); ?>routes.png">
                             </a>
                         </div>
 
                         <div class="plugins-price item">
-                            <span>$39</span>
+                            <span>$59</span>
                         </div>
 
                         <div class="plugins-body item">
@@ -705,7 +705,7 @@
                         </div>
 
                         <div class="plugins-action item">
-                            <a class="button-success" href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/maps-routes-manager-plugin-for-wordpress-by-creativeminds'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank" >More Info</a>
+                            <a class="button-success" href="<?php echo  'https://www.cminds.com/wordpress-plugins-library/google-maps-routes-manager-plugin-for-wordpress-by-creativeminds'.$currentPlugin->getOption('plugin-campign'); ?>" target="_blank" >More Info</a>
                         </div>
                     </div>
 
@@ -718,7 +718,7 @@
                         </div>
 
                         <div class="plugins-price item">
-                            <span>$39</span>
+                            <span>$49</span>
                         </div>
 
                         <div class="plugins-body item">

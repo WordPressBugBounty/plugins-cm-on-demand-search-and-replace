@@ -1,5 +1,5 @@
-.cminds_settings_description .button.cmodsar-cleanup-button { color: #A00; }
-.cminds_settings_description .button.cmodsar-cleanup-button:hover { color: #F00; }
+.cmodsar_settings_description .button.cmodsar-cleanup-button { color: #A00; }
+.cmodsar_settings_description .button.cmodsar-cleanup-button:hover { color: #F00; }
 
 .custom_top_filter .right {float: right;}
 .cmodsar-custom-replacement-add { /* border: 1px solid #CCC;border-radius: 5px;background: #EEE;margin-top: 30px;padding-bottom: 12px; */ }
@@ -61,7 +61,7 @@ td.optionButtons input.cmodsar-custom-viewandupdatedb-replacement-demo:hover { b
 .select2-container--default .select2-search--inline .select2-search__field:focus { box-shadow:none; }
 
 #cminds_settings_container { padding-right: 20px; }
-table { display: block; }
+/*table { display: block; }*/
 .section-title { font-weight: 700; position: relative; display: flex; align-items: center; justify-content: space-between; margin-top: -15px; margin-bottom: 5px; height: 30px; cursor: pointer; }
 .section-title span { padding-left: 40px; padding-right: 40px; position: absolute; left: 50px; background-color: #fff; }
 .section-title:after { content: ''; display: block; width: calc(100% - 40px); height: 2px; top: 50%; background-color: #6BC07F; left: 0; transition: .3s; }
@@ -124,6 +124,7 @@ input[type=radio]:hover, input[type=radio]:focus { border-color: #4A8B5A; box-sh
 .onlyinpro * { color: #aaa !important; }
 .onlyinpro { color: #aaa !important; }
 .onlyinpro.hide { display: none !important; }
+.onlyinpro_empty.show { display: block !important; }
 body .cm_field_help_pro { color: green !important; opacity: 0.5; }
 
 .cmodsar-wrapper-new { clear:both; width:100%; }

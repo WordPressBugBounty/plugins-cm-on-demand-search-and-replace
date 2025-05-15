@@ -52,7 +52,6 @@ class CMODSAR_Replacement {
 		ob_start();
 		?>
 		<div class="block">
-			<a onclick="jQuery('.onlyinpro,.onlyinprov').toggleClass('hide'); return false;" class="button" style="float:right;margin-top:-5px;">Show/hide Pro options</a>
 			<h3>Replacement Rules</h3>
 			<p>This plugin allows you to setup the search & replace rules for the content of your site. You can set the string which should be found and the string that should be placed instead. You may also decide only to remove without replacing it.</p>
 			<p>This does not change the content on the database. Instead it changes the content right before it's displayed.</p>
@@ -81,18 +80,18 @@ class CMODSAR_Replacement {
 	public static function addSearchAndReplaceReplacementTabContent2( $content ) {
 		ob_start();
 		?>
-		<div class="sblock">
+		<div class="sblock onlyinpro">
 			<div id="tabs-2" class="settings-tab">
-			<div class="cminds_settings_toggle_tabs cminds_settings_toggle-opened onlyinpro">Toggle All</div>
+			<div class="cminds_settings_toggle_tabs cminds_settings_toggle-opened">Toggle All</div>
 				<div class="nblock" id="settings">
-					<h3 class="section-title onlyinpro">
+					<h3 class="section-title">
 						<span>Settings</span>
 						<svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path></svg>
 					</h3>
 					<table class="floated-form-table form-table">
 						<tr valign="top" class="cmodsar_search_and_replaceItemsPerPageSetting wrapper-select">
 							<th scope="row">
-								<div class="onlyinpro" style="display:inline-block;">Search &amp; Replace edit page display</div>
+								<div style="display:inline-block;">Search &amp; Replace edit page display</div>
 								<div class="cmodsar_help" title="Choose between displaying all items on a single page or setting the number of items to see on a page."></div>
 							</th>
 							<td class="field-select">
@@ -101,7 +100,7 @@ class CMODSAR_Replacement {
 						</tr>		        
 						<tr valign="top" class="cmodsar_search_and_replaceOnPosttypes wrapper-multiselect">
 							<th scope="row">
-								<div class="onlyinpro" style="display:inline-block;">Search &amp; Replace post types</div>
+								<div style="display:inline-block;">Search &amp; Replace post types</div>
 								<div class="cmodsar_help" title="Select posts & pages where you'd like to exclude the Search & Replace replacement rules."></div>
 							</th>
 							<td class="field-multiselect">
@@ -110,7 +109,7 @@ class CMODSAR_Replacement {
 						</tr>
 						<tr valign="top" class="cmodsar_search_and_replaceExcludeIDs wrapper-multiselect" style="clear:both;">
 							<th scope="row">
-								<div class="onlyinpro" style="display:inline-block;">Search &amp; Replace excluded posts/pages</div>
+								<div style="display:inline-block;">Search &amp; Replace excluded posts/pages</div>
 								<div class="cmodsar_help" title="Select posts & pages where you'd like to exclude the Search & Replace replacement rules."></div>
 							</th>
 							<td class="field-multiselect">
@@ -121,13 +120,13 @@ class CMODSAR_Replacement {
 					</table>
 				</div>
 		        <div class="nblock" id="search-replace-in">
-			                <h3 class="section-title onlyinpro"><span>Search &amp; Replace in ...</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
+			                <h3 class="section-title"><span>Search &amp; Replace in ...</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
                         <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path>
                     </svg></h3>
 						                <table class="floated-form-table form-table">
 					        <tbody><tr valign="top" class="cmodsar_search_and_replaceTermsInSiteTitle wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Site Title</div>
+                <div style="display:inline-block;">Site Title</div>
             <div class="cmodsar_help" title="Select this option if you want to Search & Replace in the site title."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInSiteTitle" id="cmodsar_search_and_replaceTermsInSiteTitle_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInSiteTitle" id="cmodsar_search_and_replaceTermsInSiteTitle_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -135,7 +134,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_search_and_replaceTermsInTitle wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Post/Page Title</div>
+                <div style="display:inline-block;">Post/Page Title</div>
             <div class="cmodsar_help" title="Select this option if you want to Search & Replace in the post/page title."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInTitle" id="cmodsar_search_and_replaceTermsInTitle_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInTitle" id="cmodsar_search_and_replaceTermsInTitle_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -143,7 +142,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_search_and_replaceTermsInContent wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Post/Page Content</div>
+                <div style="display:inline-block;">Post/Page Content</div>
             <div class="cmodsar_help" title="Select this option if you want to Search & Replace in the post/page content."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInContent" id="cmodsar_search_and_replaceTermsInContent_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInContent" id="cmodsar_search_and_replaceTermsInContent_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -151,7 +150,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_search_and_replaceTermsInExcerpt wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Post/Page Excerpt</div>
+                <div style="display:inline-block;">Post/Page Excerpt</div>
             <div class="cmodsar_help" title="Select this option if you want to Search & Replace in the post/page excerpt."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInExcerpt" id="cmodsar_search_and_replaceTermsInExcerpt_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInExcerpt" id="cmodsar_search_and_replaceTermsInExcerpt_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -159,7 +158,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_search_and_replaceTermsInComments wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Post/Page Comments</div>
+                <div style="display:inline-block;">Post/Page Comments</div>
             <div class="cmodsar_help" title="Select this option if you want to Search & Replace in the post/page comments."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInComments" id="cmodsar_search_and_replaceTermsInComments_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInComments" id="cmodsar_search_and_replaceTermsInComments_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -168,13 +167,13 @@ class CMODSAR_Replacement {
 		                </tbody></table>
 			        </div>
 		        <div class="nblock" id="log">
-			                <h3 class="section-title onlyinpro"><span>Log</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
+			                <h3 class="section-title"><span>Log</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
                         <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path>
                     </svg></h3>
 						                <table class="floated-form-table form-table">
 					        <tbody><tr valign="top" class="cmodsar_enable_log wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Enable Preview &amp; Log</div>
+                <div style="display:inline-block;">Enable Preview &amp; Log</div>
             <div class="cmodsar_help" title="Select this option if you want to enable preview & log."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_enable_log" id="cmodsar_enable_log_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" name="cmodsar_enable_log" disabled id="cmodsar_enable_log_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -182,7 +181,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_logCleanup wrapper-custom">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Cleanup log</div>
+                <div style="display:inline-block;">Cleanup log</div>
             <div class="cmodsar_help" title="Warning! All log items of Search & Replace will be erased. It cannot be reverted."></div></th>
             <td class="field-custom">
 				<input type="hidden" id="cmodsarp_cleanuplog_form_nonce" name="cmodsarp_cleanuplog_form_nonce" value="1df9f43285"><input type="hidden" name="_wp_http_referer" value="/cminds/wp-admin/admin.php?page=cm-on-demand-search-and-replace">        <input onclick="return confirm( 'All log items of Search &amp; Replace will be erased. This cannot be reverted.' )" disabled type="submit" name="cmodsar_logCleanup" value="Cleanup log" class="button cmf-cleanuplog-button"><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>
@@ -192,13 +191,13 @@ class CMODSAR_Replacement {
 		                </tbody></table>
 			        </div>
 		        <div class="nblock" id="cleanup">
-			                <h3 class="section-title onlyinpro"><span>Cleanup</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
+			                <h3 class="section-title"><span>Cleanup</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
                         <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path>
                     </svg></h3>
 						                <table class="floated-form-table form-table">
 					        <tbody><tr valign="top" class="cmodsar_pluginCleanup wrapper-custom">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Cleanup database</div>
+                <div style="display:inline-block;">Cleanup database</div>
             <div class="cmodsar_help" title="Warning! This option will completely erase all of the data stored by the Search & Replace in the database: items, options, synonyms etc. It cannot be reverted."></div></th>
             <td class="field-custom">
 				<input type="hidden" id="cmodsarp_cleanupdb_form_nonce" name="cmodsarp_cleanupdb_form_nonce" value="58c3fe13ca"><input type="hidden" name="_wp_http_referer" value="/cminds/wp-admin/admin.php?page=cm-on-demand-search-and-replace">        <input onclick="return confirm( 'All database items of Search &amp; Replace (items, options etc.) will be erased. This cannot be reverted.' )" disabled type="submit" name="cmodsar_pluginCleanup" value="Cleanup database" class="button cmf-cleanup-button"><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>
@@ -209,6 +208,7 @@ class CMODSAR_Replacement {
 			        </div>
 		</div>
 		</div>
+		<div class="onlyinpro_empty" style="display:none;"><p style="margin-top:10px;margin-bottom:10px;font-weight:normal;">Pro options are hidden. Click the button <span style="font-weight:bold;color:#00cd00;">"Show/hide Pro options"</span> to see them.</p></div>
 		<?php
 		$content .= ob_get_clean();
 		return $content;
@@ -217,15 +217,15 @@ class CMODSAR_Replacement {
 	public static function addSearchAndReplaceReplacementTabContent3( $content ) {
 		ob_start();
 		?>
-		<div class="sblock">
-			<div id="tabs-3" class="settings-tab"><div class="cminds_settings_toggle_tabs cminds_settings_toggle-opened onlyinpro">Toggle All</div>        <div class="nblock" id="search-replace-in">
-			                <h3 class="section-title onlyinpro"><span>Search &amp; Replace in ...</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
+		<div class="sblock onlyinpro">
+			<div id="tabs-3" class="settings-tab"><div class="cminds_settings_toggle_tabs cminds_settings_toggle-opened">Toggle All</div>        <div class="nblock" id="search-replace-in">
+			                <h3 class="section-title"><span>Search &amp; Replace in ...</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
                         <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path>
                     </svg></h3>
 						                <table class="floated-form-table form-table">
 					        <tbody><tr valign="top" class="cmodsar_search_and_replaceTermsInCMTooltip wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">CM Tooltip Glossary Tooltips</div>
+                <div style="display:inline-block;">CM Tooltip Glossary Tooltips</div>
             <div class="cmodsar_help" title="Select this option if you want to Search & Replace in the CM Tooltip Glossary Tooltips."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInCMTooltip" id="cmodsar_search_and_replaceTermsInCMTooltip_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInCMTooltip" id="cmodsar_search_and_replaceTermsInCMTooltip_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -233,7 +233,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_search_and_replaceTermsInACFFields wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">ACF (Advanced Custom Fields)</div>
+                <div style="display:inline-block;">ACF (Advanced Custom Fields)</div>
             <div class="cmodsar_help" title="Select this option if you want to Search & Replace in the ACF (Advanced Custom Fields)."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInACFFields" id="cmodsar_search_and_replaceTermsInACFFields_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInACFFields" id="cmodsar_search_and_replaceTermsInACFFields_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -241,7 +241,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_search_and_replaceTermsInBBPress wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">bbPress forums</div>
+                <div style="display:inline-block;">bbPress forums</div>
             <div class="cmodsar_help" title="Select this option if you want to Search & Replace in the bbPress forums."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInBBPress" id="cmodsar_search_and_replaceTermsInBBPress_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInBBPress" id="cmodsar_search_and_replaceTermsInBBPress_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -249,7 +249,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_search_and_replaceTermsInWooAttributes wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">WooCommerce Attribute Labels</div>
+                <div style="display:inline-block;">WooCommerce Attribute Labels</div>
             <div class="cmodsar_help" title="Select this option if you want to Search & Replace in the WooCommerce Attribute Labels."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInWooAttributes" id="cmodsar_search_and_replaceTermsInWooAttributes_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInWooAttributes" id="cmodsar_search_and_replaceTermsInWooAttributes_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -257,7 +257,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_search_and_replaceTermsInYoastTitle wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Yoast SEO Title</div>
+                <div style="display:inline-block;">Yoast SEO Title</div>
             <div class="cmodsar_help" title="Select this option if you want to Search & Replace in the Yoast SEO titles."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInYoastTitle" id="cmodsar_search_and_replaceTermsInYoastTitle_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInYoastTitle" id="cmodsar_search_and_replaceTermsInYoastTitle_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -265,7 +265,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_search_and_replaceTermsInYoastDesc wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Yoast SEO Description</div>
+                <div style="display:inline-block;">Yoast SEO Description</div>
             <div class="cmodsar_help" title="Select this option if you want to Search & Replace in the Yoast SEO descriptions."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInYoastDesc" id="cmodsar_search_and_replaceTermsInYoastDesc_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceTermsInYoastDesc" id="cmodsar_search_and_replaceTermsInYoastDesc_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -275,6 +275,7 @@ class CMODSAR_Replacement {
 			        </div>
 		</div>
 		</div>
+		<div class="onlyinpro_empty" style="display:none;"><p style="margin-top:10px;margin-bottom:10px;font-weight:normal;">Pro options are hidden. Click the button <span style="font-weight:bold;color:#00cd00;">"Show/hide Pro options"</span> to see them.</p></div>
 		<?php
 		$content .= ob_get_clean();
 		return $content;
@@ -283,15 +284,15 @@ class CMODSAR_Replacement {
 	public static function addSearchAndReplaceReplacementTabContent4( $content ) {
 		ob_start();
 		?>
-		<div class="sblock">
-			<div id="tabs-4" class="settings-tab"><div class="cminds_settings_toggle_tabs cminds_settings_toggle-opened onlyinpro">Toggle All</div>        <div class="nblock" id="settings">
-			                <h3 class="section-title onlyinpro"><span>Settings</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
+		<div class="sblock onlyinpro">
+			<div id="tabs-4" class="settings-tab"><div class="cminds_settings_toggle_tabs cminds_settings_toggle-opened">Toggle All</div>        <div class="nblock" id="settings">
+			                <h3 class="section-title"><span>Settings</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
                         <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path>
                     </svg></h3>
 						                <table class="floated-form-table form-table">
 					        <tbody><tr valign="top" class="cmodsar_frontendDisableMode wrapper-select">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Display Widget for:</div>
+                <div style="display:inline-block;">Display Widget for:</div>
             <div class="cmodsar_help" title="Select what the widget should hide, just the replacements or the whole functionality."></div></th>
             <td class="field-select">
 				<div><select disabled name="cmodsar_frontendDisableMode"><option value="anyone">Show to anyone</option><option value="logged">Show to logged users</option><option value="admin" selected="selected">Show to admin only</option></select><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div></div>            </td>
@@ -299,7 +300,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_search_and_replaceFrontendSaveButton wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Only admin can save changes to database</div>
+                <div style="display:inline-block;">Only admin can save changes to database</div>
             <div class="cmodsar_help" title="Displays the button &quot;Save changes permanently to DB&quot; within the widget for admin user only."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_search_and_replaceFrontendSaveButton" id="cmodsar_search_and_replaceFrontendSaveButton_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_search_and_replaceFrontendSaveButton" id="cmodsar_search_and_replaceFrontendSaveButton_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -308,13 +309,13 @@ class CMODSAR_Replacement {
 		                </tbody></table>
 			        </div>
 		        <div class="nblock" id="position">
-			                <h3 class="section-title onlyinpro"><span>Position</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
+			                <h3 class="section-title"><span>Position</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
                         <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path>
                     </svg></h3>
 						                <table class="floated-form-table form-table">
 					        <tbody><tr valign="top" class="cmodsar_replacementOnOffWidgetAddTop wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Add to the top of each post</div>
+                <div style="display:inline-block;">Add to the top of each post</div>
             <div class="cmodsar_help" title="Select this option if you want to automatically add the widget allowing to toggle the replacements ON/OFF on the top of each post/page (from the list from General Settings)."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_replacementOnOffWidgetAddTop" id="cmodsar_replacementOnOffWidgetAddTop_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_replacementOnOffWidgetAddTop" id="cmodsar_replacementOnOffWidgetAddTop_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -322,7 +323,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_replacementOnOffWidgetAddBottom wrapper-bool">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Add to the bottom of each post</div>
+                <div style="display:inline-block;">Add to the bottom of each post</div>
             <div class="cmodsar_help" title="Select this option if you want to automatically add the widget allowing to toggle the replacements ON/OFF on the top of each post/page (from the list from General Settings)."></div></th>
             <td class="field-bool">
 				<label><input type="radio" disabled name="cmodsar_replacementOnOffWidgetAddBottom" id="cmodsar_replacementOnOffWidgetAddBottom_1" value="1"> On&nbsp;&nbsp;</label><label><input type="radio" disabled name="cmodsar_replacementOnOffWidgetAddBottom" id="cmodsar_replacementOnOffWidgetAddBottom_0" value="0" checked="checked"> Off</label><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -331,13 +332,13 @@ class CMODSAR_Replacement {
 		                </tbody></table>
 			        </div>
 		        <div class="nblock" id="labels">
-			                <h3 class="section-title onlyinpro"><span>Labels</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
+			                <h3 class="section-title"><span>Labels</span> <svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#6BC07F">
                         <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path>
                     </svg></h3>
 						                <table class="floated-form-table form-table">
 					        <tbody><tr valign="top" class="cmodsar_replacementOnOffWidgetLabel wrapper-string">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Tooltip ON/OFF Widget label</div>
+                <div style="display:inline-block;">Tooltip ON/OFF Widget label</div>
             <div class="cmodsar_help" title="Select the label for the Replacement Toggle Widget."></div></th>
             <td class="field-string">
 				<input type="text" disabled name="cmodsar_replacementOnOffWidgetLabel" value="Tooltip Widget Label"><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -345,7 +346,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_replacementOnOffWidgetDisableText wrapper-string">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Tooltip ON/OFF Widget - disable text</div>
+                <div style="display:inline-block;">Tooltip ON/OFF Widget - disable text</div>
             <div class="cmodsar_help" title="Select the text for the link when the replacements are enabled."></div></th>
             <td class="field-string">
 				<input type="text" disabled name="cmodsar_replacementOnOffWidgetDisableText" value="Disable Replacements"><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -353,7 +354,7 @@ class CMODSAR_Replacement {
         </tr>
 		        <tr valign="top" class="cmodsar_replacementOnOffWidgetEnableText wrapper-string">
             <th scope="row">
-                <div class="onlyinpro" style="display:inline-block;">Tooltip ON/OFF Widget - enable text</div>
+                <div style="display:inline-block;">Tooltip ON/OFF Widget - enable text</div>
             <div class="cmodsar_help" title="Select the text for the link when the replacements are disabled."></div></th>
             <td class="field-string">
 				<input type="text" disabled name="cmodsar_replacementOnOffWidgetEnableText" value="Enable Replacements"><div style="margin-top:5px"><span class="cm_field_help_pro">(Only in Pro)</span></div>            </td>
@@ -363,6 +364,7 @@ class CMODSAR_Replacement {
 			        </div>
 		</div>
 		</div>
+		<div class="onlyinpro_empty" style="display:none;"><p style="margin-top:10px;margin-bottom:10px;font-weight:normal;">Pro options are hidden. Click the button <span style="font-weight:bold;color:#00cd00;">"Show/hide Pro options"</span> to see them.</p></div>
 		<?php
 		$content .= ob_get_clean();
 		return $content;
@@ -552,6 +554,7 @@ class CMODSAR_Replacement {
 						<a href="javascript:void(0);" class="button" disabled>+</a>
 					</div>
 				</div>
+				<div class="onlyinpro_empty" style="display:none;"><p style="margin-top:10px;margin-bottom:20px;font-weight:normal;">Pro options are hidden. Click the button <span style="font-weight:bold;color:#00cd00;">"Show/hide Pro options"</span> to see them.</p></div>
 			</div>
 			<div class="cmodsar-wrapper-new-row-7">
 				<div>
@@ -641,6 +644,7 @@ class CMODSAR_Replacement {
 						<a href="javascript:void(0);" class="button" disabled>+</a>
 					</div>
 				</div>
+				<div class="onlyinpro_empty" style="display:none;"><p style="margin-top:10px;margin-bottom:20px;font-weight:normal;">Pro options are hidden. Click the button <span style="font-weight:bold;color:#00cd00;">"Show/hide Pro options"</span> to see them.</p></div>
 			</div>
 			<div class="cmodsar-wrapper-new-row-7">
 				<div>

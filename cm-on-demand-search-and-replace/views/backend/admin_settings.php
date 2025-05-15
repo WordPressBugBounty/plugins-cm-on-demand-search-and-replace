@@ -3,7 +3,7 @@
 <?php endif; ?>
 <br/>
 <br/>
-<div class="cminds_settings_description">
+<div class="cmodsar_settings_description">
 	<?php
 	echo do_shortcode( '[cminds_free_activation id="cmodsar"]' );
 	?>
@@ -11,9 +11,10 @@
 	.onlyinpro * { color: #aaa !important; }
 	.onlyinpro { color: #aaa !important; }
 	.onlyinpro.hide { display: none !important; }
+	.onlyinpro_empty.show { display: block !important; }
 	.onlyinprov.hide { display: none !important; }
 	</style>
-    <form method="post">
+    <form method="post" style="float:left; margin-bottom:20px;">
 		<?php wp_nonce_field( 'cmodsar_cleanup_form_nonce', 'cmodsar_cleanup_form_nonce' ); ?>
         <div>
             <div class="cmodsar_field_help_container">Warning! This option will completely erase all of the data stored by the CM On Demand Search And Replace in the database! <br/> It cannot be reverted.</div>
@@ -21,6 +22,7 @@
             <span style="display: inline-block;position: relative;"></span>
         </div>
     </form>
+	<a onclick="jQuery('.onlyinpro,.onlyinprov').toggleClass('hide'); jQuery('.onlyinpro_empty').toggleClass('show'); return false;" class="button cmsandr_show_hide_pro_options" style="float:right; background:lightgreen;">Show/hide Pro options</a>
 	<?php
 	// check permalink settings
 	if ( get_option( 'permalink_structure' ) == '' ) {

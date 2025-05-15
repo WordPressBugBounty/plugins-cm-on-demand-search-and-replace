@@ -1,0 +1,6 @@
+.cmseparator { display:block; margin:8px 12px 8px 12px; padding:0; height:1px; line-height:1px; background:#cccccc; }
+.cminds_guide { margin:0; padding:0; }
+.cminds_guide .guide_text { float:left !important; width:40% !important;  }
+.cminds_guide .guide_videos { float:right !important; width:40% !important; }
+.cminds_guide .guide_videos .prev_video { display:none; }
+.cminds_guide .guide_videos .next_video { display:none; }

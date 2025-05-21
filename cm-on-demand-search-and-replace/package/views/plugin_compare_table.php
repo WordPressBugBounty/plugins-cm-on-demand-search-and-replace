@@ -263,6 +263,17 @@
     </tr>
     <tr>
         <td style="width:28%; border-bottom: 1px solid #c0c0c0; border-right: 1px solid #c0c0c0;">
+            Exclude Images
+            <span class="dashicons dashicons-info-outline cminds-package-show-tooltip" style="color:green"
+                  title="Define if to search and replace content in image URLs."></span>
+        </td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+        <td style="text-align:center; width:18%; border-bottom: 1px solid #c0c0c0;"><span class="dashicons dashicons-yes" style="color:green"></span></td>
+    </tr>
+    <tr>
+        <td style="width:28%; border-bottom: 1px solid #c0c0c0; border-right: 1px solid #c0c0c0;">
             All WordPress Content Types
             <span class="dashicons dashicons-info-outline cminds-package-show-tooltip" style="color:green"
                   title="Define search and replace rules for comments, site and page titles, content, excerpts and images."></span>

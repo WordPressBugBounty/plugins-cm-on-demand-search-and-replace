@@ -5,13 +5,12 @@ Donate link: http://www.cminds.com/
 Tags: find, search replace, database, search and replace, replace
 Requires at least: 5.4.0
 Tested up to: 6.8
-Stable tag: 1.4.9
+Stable tag: 1.5.0
 Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Search and replace words, phrases, and HTML within your website posts and pages.
-
 
 == Description ==
 
@@ -48,6 +47,7 @@ The [Search and Replace Plugin Premium edition](https://www.cminds.com/wordpress
 * Applies replacement rules that can help in standarizing WordPress posts and pages.
 * Performs replacements only locally and doesn’t save them to the database.
 * Supports scanning content for case sensitive words.
+* Choose if to search and replace content in images URLs.
 
 == WordPress Search Replace Plugin Pro Version Features ==
 
@@ -99,10 +99,17 @@ List of all [WordPress Plugins](https://www.cminds.com) by CreativeMinds
 
 == Changelog ==
 
+= 1.5.0 =
+Release Date: 20 May 2025
+* Added support to exclude images url
+
 = 1.4.9 =
 Release Date: 15 May 2025
 * Improvements
 * Updated pricing
+
+= 1.4.8 =
+* Bugfixing
 
 = 1.4.7 =
 Release Date: 18 Mar 2025

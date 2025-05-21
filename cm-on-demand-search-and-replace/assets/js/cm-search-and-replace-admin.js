@@ -36,7 +36,7 @@
         $('input.datepicker:visible').datetimepicker(datepicker_options);
 
         $(document).on('click', '#cmodsar-custom-add-replacement-btn', function () {
-            var data, replace_from, replace_to, replace_case, replace_regex, replace_pause, replace_title, replace_content, replace_excerpt, replace_comments, replace_time_from, replace_time_to, valid = true;
+            var data, replace_from, replace_to, replace_case, replace_regex, replace_pause, replace_title, replace_content, replace_excerpt, replace_comments, replace_images, replace_time_from, replace_time_to, valid = true;
 			
 			form_nonce = $('.cmodsar-custom-replacement-add').closest('form').find("#_wpnonce");
 
@@ -51,6 +51,7 @@
             replace_content = $('.cmodsar-custom-replacement-add input[name="cmodsar_custom_content_new"]');
             replace_excerpt = $('.cmodsar-custom-replacement-add input[name="cmodsar_custom_excerpt_new"]');
             replace_comments = $('.cmodsar-custom-replacement-add input[name="cmodsar_custom_comments_new"]');
+            replace_images = $('.cmodsar-custom-replacement-add input[name="cmodsar_custom_images_new"]');
 
             replace_time_from = $('.cmodsar-custom-replacement-add input[name*="custom_time_from"]:enabled');
             replace_time_to = $('.cmodsar-custom-replacement-add input[name*="custom_time_to"]:enabled');
@@ -95,6 +96,7 @@
                 replace_content: replace_content.is(':checked') ? 1 : 0,
                 replace_excerpt: replace_excerpt.is(':checked') ? 1 : 0,
                 replace_comments: replace_comments.is(':checked') ? 1 : 0,
+                replace_images: replace_images.is(':checked') ? 1 : 0,
                 replace_time_from: $(replace_time_from).map(function () {
                     return $(this).val();
                 }).get(),
@@ -119,6 +121,7 @@
                 replace_content.val('');
                 replace_excerpt.val('');
                 replace_comments.val('');
+				replace_images.prop('checked', false);
 
                 replace_time_from.closest('tr').find('.cmodsar-custom-delete-restriction').trigger('click', [{"silent": true}]);
 
@@ -220,7 +223,7 @@
         $(document).on('click', '.cmodsar-custom-update-replacement', function () {
             if (window.window.confirm('Do you really want to update this replacement?')) {
 
-                var data, id, replace_from, replace_to, replace_case, replace_regex, replace_pause, replace_title, replace_content, replace_excerpt, replace_comments, replace_time_from, replace_time_to, valid = true;
+                var data, id, replace_from, replace_to, replace_case, replace_regex, replace_pause, replace_title, replace_content, replace_excerpt, replace_comments, replace_images, replace_time_from, replace_time_to, valid = true;
 
                 id = $(this).data('uid');
 
@@ -237,6 +240,7 @@
                 replace_content = $('.cmodsar_replacements_list input[name="cmodsar_custom_content[' + id + ']"]');
                 replace_excerpt = $('.cmodsar_replacements_list input[name="cmodsar_custom_excerpt[' + id + ']"]');
                 replace_comments = $('.cmodsar_replacements_list input[name="cmodsar_custom_comments[' + id + ']"]');
+                replace_images = $('.cmodsar_replacements_list input[name="cmodsar_custom_images[' + id + ']"]');
 
                 replace_time_from = $('.cmodsar_replacements_list input[name*="custom_time_from[' + id + ']"]:enabled');
                 replace_time_to = $('.cmodsar_replacements_list input[name*="custom_time_to[' + id + ']"]:enabled');
@@ -282,6 +286,7 @@
                     replace_content: replace_content.is(':checked') ? 1 : 0,
                     replace_excerpt: replace_excerpt.is(':checked') ? 1 : 0,
                     replace_comments: replace_comments.is(':checked') ? 1 : 0,
+                    replace_images: replace_images.is(':checked') ? 1 : 0,
                     replace_time_from: $(replace_time_from).map(function () {
                         return $(this).val();
                     }).get(),

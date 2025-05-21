@@ -386,6 +386,7 @@ class CMODSAR_Replacement {
 			$replace[ 'from' ]	 = !empty( $replace_from ) ? $replace_from : '';
 			$replace[ 'to' ]	 = !empty( $post[ 'replace_to' ] ) ? $post[ 'replace_to' ] : '';
 			$replace[ 'case' ]	 = !empty( $post[ 'replace_case' ] ) ? 1 : 0;
+			$replace[ 'images' ] = !empty( $post[ 'replace_images' ] ) ? 1 : 0;
 			//$replacements[] = $replace;
 			array_unshift($replacements, $replace);
 			update_option( 'cmodsar_replacements', $replacements );
@@ -414,6 +415,7 @@ class CMODSAR_Replacement {
 				$replace[ 'from' ]	 = isset( $replace_from ) ? $replace_from : '';
 				$replace[ 'to' ]	 = isset( $post[ 'replace_to' ] ) ? $post[ 'replace_to' ] : '';
 				$replace[ 'case' ]	 = !empty( $post[ 'replace_case' ] ) ? 1 : 0;
+				$replace[ 'images' ] = !empty( $post[ 'replace_images' ] ) ? 1 : 0;
 				$replacements[ $id ] = $replace;
 			}
 			update_option( 'cmodsar_replacements', $replacements );
@@ -531,16 +533,19 @@ class CMODSAR_Replacement {
 				<div class="cmodsar-wrapper-new-row-4 onlyinpro">
 					<input type="checkbox" disabled /> Regex <div class="cmodsar_help" title='Select this option to treat the "Search For" field as a Regular Expression for advanced matching.'></div> <span class="cm_field_help_pro">(Only in Pro)</span>
 				</div>
-				<div class="cmodsar-wrapper-new-row-5 onlyinpro">
-					<label>Exclusions: <div class="cmodsar_help" title='Exclude specific elements such as the site title, post titles, content, excerpts, links, images, or comments from the search and replace process.'></div><br><span class="cm_field_help_pro">(Only in Pro)</span></label>
+				<div class="cmodsar-wrapper-new-row-5">
+					<label>Exclusions: <div class="cmodsar_help" title='Exclude specific elements such as the site title, post titles, content, excerpts, links, images, or comments from the search and replace process.'></div></label>
 					<div>
-						<input type="checkbox" disabled /> Site Title<br>
-						<input type="checkbox" disabled /> Title<br>
-						<input type="checkbox" disabled /> Content<br>
-						<input type="checkbox" disabled /> Excerpt<br>
-						<input type="checkbox" disabled /> Links<br>
-						<input type="checkbox" disabled /> Images<br>
-						<input type="checkbox" disabled /> Comments
+						<div class="onlyinpro"><input type="checkbox" disabled /> Site Title <span class="cm_field_help_pro">(Only in Pro)</span></div>
+						<div class="onlyinpro"><input type="checkbox" disabled /> <span class="onlyinpro">Title</span> <span class="cm_field_help_pro">(Only in Pro)</span></div>
+						<div class="onlyinpro"><input type="checkbox" disabled /> <span class="onlyinpro">Content</span> <span class="cm_field_help_pro">(Only in Pro)</span></div>
+						<div class="onlyinpro"><input type="checkbox" disabled /> <span class="onlyinpro">Excerpt</span> <span class="cm_field_help_pro">(Only in Pro)</span></div>
+						<div class="onlyinpro"><input type="checkbox" disabled /> <span class="onlyinpro">Links</span> <span class="cm_field_help_pro">(Only in Pro)</span></div>
+						<div>
+							<input type="hidden" name="cmodsar_custom_images_new" value="0" />
+							<input type="checkbox" name="cmodsar_custom_images_new" value="1" /> Images
+						</div>
+						<div class="onlyinpro"><input type="checkbox" disabled /> <span class="onlyinpro">Comments</span> <span class="cm_field_help_pro">(Only in Pro)</span></div>
 					</div>
 				</div>
 				<div class="cmodsar-wrapper-new-row-6 onlyinpro">
@@ -585,6 +590,7 @@ class CMODSAR_Replacement {
 		$from	 = (isset( $replacementRow[ 'from' ] )) ? $replacementRow[ 'from' ] : '';
 		$to		 = (isset( $replacementRow[ 'to' ] )) ? $replacementRow[ 'to' ] : '';
 		$case	 = (isset( $replacementRow[ 'case' ] ) && $replacementRow[ 'case' ] == 1) ? 1 : 0;
+		$images  = (isset( $replacementRow[ 'images' ] ) && $replacementRow[ 'images' ] == 1) ? 1 : 0;
 		?>
 		<div class="cmodsar_replacements_list cmodsar-wrapper-row">
 			<div class="cmodsar-wrapper-new-row-1">
@@ -621,16 +627,19 @@ class CMODSAR_Replacement {
 				<div class="cmodsar-wrapper-new-row-4 onlyinpro">
 					<input type="checkbox" disabled /> Regex <div class="cmodsar_help" title='Select this option to treat the "Search For" field as a Regular Expression for advanced matching.'></div> <span class="cm_field_help_pro">(Only in Pro)</span>
 				</div>
-				<div class="cmodsar-wrapper-new-row-5 onlyinpro">
-					<label>Exclusions: <div class="cmodsar_help" title='Exclude specific elements such as the site title, post titles, content, excerpts, links, images, or comments from the search and replace process.'></div><br><span class="cm_field_help_pro">(Only in Pro)</span></label>
+				<div class="cmodsar-wrapper-new-row-5">
+					<label>Exclusions: <div class="cmodsar_help" title='Exclude specific elements such as the site title, post titles, content, excerpts, links, images, or comments from the search and replace process.'></div></label>
 					<div>
-						<input type="checkbox" disabled /> Site Title<br>
-						<input type="checkbox" disabled /> Title<br>
-						<input type="checkbox" disabled /> Content<br>
-						<input type="checkbox" disabled /> Excerpt<br>
-						<input type="checkbox" disabled /> Links<br>
-						<input type="checkbox" disabled /> Images<br>
-						<input type="checkbox" disabled /> Comments
+						<div class="onlyinpro"><input type="checkbox" disabled /> Site Title <span class="cm_field_help_pro">(Only in Pro)</span></div>
+						<div class="onlyinpro"><input type="checkbox" disabled /> Title <span class="cm_field_help_pro">(Only in Pro)</span></div>
+						<div class="onlyinpro"><input type="checkbox" disabled /> Content <span class="cm_field_help_pro">(Only in Pro)</span></div>
+						<div class="onlyinpro"><input type="checkbox" disabled /> Excerpt <span class="cm_field_help_pro">(Only in Pro)</span></div>
+						<div class="onlyinpro"><input type="checkbox" disabled /> Links <span class="cm_field_help_pro">(Only in Pro)</span></div>
+						<div>
+							<input type="hidden" name="cmodsar_custom_images[<?php echo $rowKey; ?>]" value="0" />
+							<input type="checkbox" name="cmodsar_custom_images[<?php echo $rowKey; ?>]" value="1" <?php echo checked( 1, $images ) ?> /> Images
+						</div>
+						<div class="onlyinpro"><input type="checkbox" disabled /> Comments <span class="cm_field_help_pro">(Only in Pro)</span></div>
 					</div>
 				</div>
 				<div class="cmodsar-wrapper-new-row-6 onlyinpro">
@@ -1005,12 +1014,12 @@ class CMODSAR_Replacement {
 					}
 				}
 
-				// Ticket 56905 Adding "Add Rule" function
 				$replace_from = trim($post[ 'cmodsar_custom_from_new' ]);
 
 		 		$replace[ 'from' ]	 = !empty( $replace_from ) ? $replace_from : '';
 		 		$replace[ 'to' ]	 = !empty( $post[ 'cmodsar_custom_to_new' ] ) ? $post[ 'cmodsar_custom_to_new' ] : '';
 		 		$replace[ 'case' ]	 = !empty( $post[ 'cmodsar_custom_case_new' ] ) ? 1 : 0;
+		 		$replace[ 'images' ]	 = !empty( $post[ 'cmodsar_custom_case_new' ] ) ? 1 : 0;
 				
 				if($replace[ 'from' ] != '') {
 		 			$repl_array[] = $replace;
@@ -1041,13 +1050,26 @@ class CMODSAR_Replacement {
 		if ( !empty( $repl ) && is_array( $repl ) ) {
 			foreach ( $repl as $r ) {
 				if ( !empty( $r[ 'from' ] ) ) {
-					// Ticket 56905
+					
 					$r[ 'from' ] = preg_replace( '/"(.*?)"/', '&#8221;$1&#8221;', $r[ 'from' ] );
 					$r[ 'from' ] = preg_replace( "/'(.*?)'/", '&#8217;$1&#8217;', $r[ 'from' ] );
 					$r[ 'from' ] = preg_replace( '/(.*?)"/', '$1&#8221;', $r[ 'from' ] );
 					$r[ 'from' ] = preg_replace( "/(.*?)'/", '$1&#8217;', $r[ 'from' ] );
-
-					$content = ($r[ 'case' ] == 1) ? str_replace( $r[ 'from' ], $r[ 'to' ], $content ) : str_ireplace( $r[ 'from' ], $r[ 'to' ], $content );
+					
+					if($r[ 'case' ] == 1) {
+						if($r['images']) {
+							$content = preg_replace("/<img[\S\s]+?>(*SKIP)(*FAIL)|".$r[ 'from' ]."/", $r[ 'to' ], $content);
+						} else {
+							$content = str_replace( $r[ 'from' ], $r[ 'to' ], $content );
+						}
+					} else {
+						if($r['images']) {
+							$content = preg_replace("/<img[\S\s]+?>(*SKIP)(*FAIL)|".$r[ 'from' ]."/i", $r[ 'to' ], $content);	
+						} else {
+							$content = str_ireplace( $r[ 'from' ], $r[ 'to' ], $content );
+						}
+					}
+					
 				}
 			}
 		}

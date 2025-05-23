@@ -5,8 +5,6 @@
         </div>
         <?php _e(CMODSAR_NAME); ?>
     </h2>
-
     <?php CMODSAR_Base::cmodsar_showNav(); ?>
-
     <?php echo $content; ?>
 </div>

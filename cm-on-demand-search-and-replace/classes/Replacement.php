@@ -1056,14 +1056,14 @@ class CMODSAR_Replacement {
 					$r[ 'from' ] = preg_replace( '/(.*?)"/', '$1&#8221;', $r[ 'from' ] );
 					$r[ 'from' ] = preg_replace( "/(.*?)'/", '$1&#8217;', $r[ 'from' ] );
 					
-					if($r[ 'case' ] == 1) {
-						if($r['images']) {
+					if(isset( $r[ 'case' ] ) && $r[ 'case' ] == 1) {
+						if(isset( $r[ 'images' ] ) && $r[ 'images' ] == 1) {
 							$content = preg_replace("/<img[\S\s]+?>(*SKIP)(*FAIL)|".$r[ 'from' ]."/", $r[ 'to' ], $content);
 						} else {
 							$content = str_replace( $r[ 'from' ], $r[ 'to' ], $content );
 						}
 					} else {
-						if($r['images']) {
+						if(isset( $r[ 'images' ] ) && $r[ 'images' ] == 1) {
 							$content = preg_replace("/<img[\S\s]+?>(*SKIP)(*FAIL)|".$r[ 'from' ]."/i", $r[ 'to' ], $content);	
 						} else {
 							$content = str_ireplace( $r[ 'from' ], $r[ 'to' ], $content );

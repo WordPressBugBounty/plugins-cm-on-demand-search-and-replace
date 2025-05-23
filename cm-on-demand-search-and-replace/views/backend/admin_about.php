@@ -1,12 +1,8 @@
-
 <div class="clear"></div>
 <hr>
-
 This plugin was developed by <a href="http://www.cminds.com/" target="_blank">CreativeMinds</a>.
 You can find more information about the <?php echo CMODSAR_NAME; ?> <a href="http://www.cminds.com/" target="_blank">here</a>
-
 <br />
-
 <h3>We Are Experts in Custom Plugin Development</h3>
 <ul>
     <li><strong>Professional Quality Work </strong>- We follow a detailed coding standard that ensures we deliver only the highest quality products and services. You can count on maintainable code that fulfills your requirements completely.</li>

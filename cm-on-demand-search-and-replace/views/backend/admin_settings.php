@@ -24,15 +24,11 @@
     </form>
 	<a onclick="jQuery('.onlyinpro,.onlyinprov').toggleClass('hide'); jQuery('.onlyinpro_empty').toggleClass('show'); return false;" class="button cmsandr_show_hide_pro_options" style="float:right; background:lightgreen;">Show/hide Pro options</a>
 	<?php
-	// check permalink settings
 	if ( get_option( 'permalink_structure' ) == '' ) {
 		echo '<span style="color:red">Your WordPress Permalinks needs to be set to allow plugin to work correctly. Please Go to <a href="' . admin_url() . 'options-permalink.php" target="new">Settings->Permalinks</a> to set Permalinks to Post Name.</span><br><br>';
 	}
 	?>
 </div>
-<?php
-//include plugin_dir_path(__FILE__) . '/call_to_action.phtml';
-?>
 <br/>
 <div class="clear"></div>
 <form method="post">

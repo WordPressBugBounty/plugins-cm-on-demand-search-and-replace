@@ -1056,17 +1056,22 @@ class CMODSAR_Replacement {
 					$r[ 'from' ] = preg_replace( '/(.*?)"/', '$1&#8221;', $r[ 'from' ] );
 					$r[ 'from' ] = preg_replace( "/(.*?)'/", '$1&#8217;', $r[ 'from' ] );
 					
+					$safe_replacement = '';
+					if($r[ 'to' ] != '') {
+						$safe_replacement = htmlspecialchars( $r[ 'to' ], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8' );
+					}
+					
 					if(isset( $r[ 'case' ] ) && $r[ 'case' ] == 1) {
 						if(isset( $r[ 'images' ] ) && $r[ 'images' ] == 1) {
-							$content = preg_replace("/<img[\S\s]+?>(*SKIP)(*FAIL)|".$r[ 'from' ]."/", $r[ 'to' ], $content);
+							$content = preg_replace("/<img[\S\s]+?>(*SKIP)(*FAIL)|".$r[ 'from' ]."/", $safe_replacement, $content);
 						} else {
-							$content = str_replace( $r[ 'from' ], $r[ 'to' ], $content );
+							$content = str_replace( $r[ 'from' ], $safe_replacement, $content );
 						}
 					} else {
 						if(isset( $r[ 'images' ] ) && $r[ 'images' ] == 1) {
-							$content = preg_replace("/<img[\S\s]+?>(*SKIP)(*FAIL)|".$r[ 'from' ]."/i", $r[ 'to' ], $content);	
+							$content = preg_replace("/<img[\S\s]+?>(*SKIP)(*FAIL)|".$r[ 'from' ]."/i", $safe_replacement, $content);	
 						} else {
-							$content = str_ireplace( $r[ 'from' ], $r[ 'to' ], $content );
+							$content = str_ireplace( $r[ 'from' ], $safe_replacement, $content );
 						}
 					}
 					

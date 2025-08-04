@@ -82,7 +82,7 @@ class CMODSAR_Base {
         }
         define('CMODSAR_ABOUT_OPTION', 'outputAbout');
         define('CMODSAR_SETTINGS_OPTION', 'cmodsar_settings');
-		define( 'CMODSAR_EXPORT_IMPORT_OPTION', 'export-import' );
+		define('CMODSAR_EXPORT_IMPORT_OPTION', 'export-import');
         define('CMODSAR_PRO_OPTION', 'cmodsar_pro');
         do_action('cmodsar_setup_constants_after');
     }
@@ -258,42 +258,53 @@ class CMODSAR_Base {
      * Function responsible for saving the options
      */
     public static function saveOptions() {
+		
         $messages = '';
         $_POST = array_map('stripslashes_deep', $_POST);
         $post = $_POST;
 
         if( isset($post["cmodsar_customSave"]) ) {
-            do_action('cmodsar_save_options_berfore', $post, $messages);
+			
+			if(isset($post['_wpnonce']) && wp_verify_nonce($post['_wpnonce'], 'update-options')) {
+				
+				do_action('cmodsar_save_options_berfore', $post, $messages);
 
-            function cmodsar_get_the_option_names($k) {
-                return strpos($k, 'cmodsar_') === 0;
-            }
+				function cmodsar_get_the_option_names($k) {
+					return strpos($k, 'cmodsar_') === 0;
+				}
 
-            $options_names = apply_filters('cmodsar_thirdparty_option_names', array_filter(array_keys($post), 'cmodsar_get_the_option_names'));
+				$options_names = apply_filters('cmodsar_thirdparty_option_names', array_filter(array_keys($post), 'cmodsar_get_the_option_names'));
 
-            foreach($options_names as $option_name) {
-                if( !isset($post[$option_name]) ) {
-                    update_option($option_name, 0);
-                } else {
-                    if( $option_name == 'cmodsar_index_letters' ) {
-                        $optionValue = explode(',', $post[$option_name]);
-                        $optionValue = array_map('mb_strtolower', $optionValue);
-                    } else {
-                        $optionValue = is_array($post[$option_name]) ? $post[$option_name] : trim($post[$option_name]);
-                    }
-                    update_option($option_name, $optionValue);
-                }
-            }
-            do_action('cmodsar_save_options_after_on_save', $post, array(&$messages));
+				foreach($options_names as $option_name) {
+					if( !isset($post[$option_name]) ) {
+						update_option($option_name, 0);
+					} else {
+						if( $option_name == 'cmodsar_index_letters' ) {
+							$optionValue = explode(',', $post[$option_name]);
+							$optionValue = array_map('mb_strtolower', $optionValue);
+						} else {
+							$optionValue = is_array($post[$option_name]) ? $post[$option_name] : trim($post[$option_name]);
+						}
+						update_option($option_name, $optionValue);
+					}
+				}
+				
+				do_action('cmodsar_save_options_after_on_save', $post, array(&$messages));
+				do_action('cmodsar_save_options_after', $post, array(&$messages));
+				
+			}
+			
         }
-
-        do_action('cmodsar_save_options_after', $post, array(&$messages));
-
+		
         if( isset($post['cmodsar_pluginCleanup']) ) {
+			
 			if ( wp_verify_nonce( $_POST['cmodsar_cleanup_form_nonce'], 'cmodsar_cleanup_form_nonce' ) ) {
+				
 				self::_cleanup();
 				$messages = 'CM On Demand Search And Replace data have been removed from the database.';
+				
 			}
+			
         }
 
         return array('messages' => $messages);

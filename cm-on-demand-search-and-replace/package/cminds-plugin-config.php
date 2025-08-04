@@ -4,9 +4,9 @@ include plugin_dir_path(__FILE__) . 'views/plugin_compare_table.php';
 $plugin_compare_table = ob_get_contents();
 ob_end_clean();
 $cminds_plugin_config = array(
-	'plugin-is-pro'						=> false,
-	'plugin-has-addons'					=> TRUE,
-	'plugin-version'					=> '1.5.2',
+	'plugin-is-pro'		   => false,
+	'plugin-has-addons'	   => TRUE,
+	'plugin-version'	   => '1.5.3',
 	'plugin-addons'        => array(
 		array(
 			'title' => 'Header and Footer Plugin',
@@ -171,8 +171,8 @@ $cminds_plugin_config = array(
         <li>If there is still "test" displayed - it may mean that your theme is not using "the_content" filter.</li>
         </ol>
     </div>',
-    'plugin-guide-video-height'          => 240,
-    'plugin-guide-videos'            => array(
+    'plugin-guide-video-height'  => 240,
+    'plugin-guide-videos'        => array(
         array( 'title' => 'Installation tutorial', 'video_id' => '157541752' ),
     ),
 	'plugin-dir-path'			 => plugin_dir_path( CMODSAR_PLUGIN_FILE ),
@@ -190,5 +190,6 @@ $cminds_plugin_config = array(
 	'plugin-review-url'			 => 'https://wordpress.org/support/view/plugin-reviews/cm-on-demand-search-and-replace',
 	'plugin-changelog-url'		 => CMODSAR_RELEASE_NOTES,
 	'plugin-licensing-aliases'	 => array( CMODSAR_LICENSE_NAME ),
-	'plugin-compare-table'	 => $plugin_compare_table,
+	'plugin-compare-table'		 => $plugin_compare_table,
 );
+?>

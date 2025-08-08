@@ -1058,7 +1058,7 @@ class CMODSAR_Replacement {
 					
 					$safe_replacement = '';
 					if($r[ 'to' ] != '') {
-						$safe_replacement = htmlspecialchars( $r[ 'to' ], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8' );
+						$safe_replacement = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', '', $r[ 'to' ]);
 					}
 					
 					if(isset( $r[ 'case' ] ) && $r[ 'case' ] == 1) {

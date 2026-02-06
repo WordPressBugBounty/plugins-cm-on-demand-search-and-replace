@@ -4,8 +4,8 @@ Contributors: CreativeMindsSolutions
 Donate link: http://www.cminds.com/
 Tags: find, search replace, database, search and replace, replace
 Requires at least: 5.4.0
-Tested up to: 6.8
-Stable tag: 1.5.4
+Tested up to: 6.9
+Stable tag: 1.5.5
 Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -28,7 +28,7 @@ This WordPress plugin generates dynamic rules that enable consistent replacement
 
 The [Search and Replace Plugin Premium edition](https://www.cminds.com/wordpress-plugins-library/purchase-cm-on-demand-search-and-replace-plugin-for-wordpress/) includes even more powerful features, such as: store search and replace changes to databse, log all changes made, regex support, time based search and replace rules and much more.
 
-### Search Replace Plugin Introduction Video
+### Search Replace Plugin Introduction Video (Pro Version)
 
 [vimeo https://vimeo.com/124893784]
 
@@ -98,6 +98,10 @@ List of all [WordPress Plugins](https://www.cminds.com) by CreativeMinds
 [More FAQ's](https://www.cminds.com/wordpress-plugins-library/purchase-cm-on-demand-search-and-replace-plugin-for-wordpress/#plugin-faq)
 
 == Changelog ==
+
+= 1.5.5 =
+Release Date: 15 Jan 2026
+* Added missing capability check on a ajax functions
 
 = 1.5.4 =
 Release Date: 08 Aug 2025

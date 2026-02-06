@@ -218,12 +218,13 @@ if (!class_exists(__NAMESPACE__ . '\CmindsFreePackageOdsar')) {
          * @since  1.1.2
          */
         function submitRegistrationEmail() {
+			if(!current_user_can('manage_options')) {
+				exit;
+			}
             $atts = array();
-
             if (empty($_POST['email'])) {
                 exit;
             }
-
             $this->registerUser($atts);
         }
 
@@ -232,8 +233,10 @@ if (!class_exists(__NAMESPACE__ . '\CmindsFreePackageOdsar')) {
          * @since  1.1.2
          */
         function submitDeregistration() {
+			if(!current_user_can('manage_options')) {
+				exit;
+			}
             $atts = array();
-
             $this->deregisterUser($atts);
         }
 
@@ -242,6 +245,9 @@ if (!class_exists(__NAMESPACE__ . '\CmindsFreePackageOdsar')) {
          * @since  1.1.2
          */
         function submitRegistrationSkip() {
+			if(!current_user_can('manage_options')) {
+				exit;
+			}
             if (empty($_POST)) {
                 exit;
             }
@@ -257,15 +263,12 @@ if (!class_exists(__NAMESPACE__ . '\CmindsFreePackageOdsar')) {
          * @since  1.1.2
          */
         function submitUninstallReason() {
-			
 			if(!current_user_can('manage_options')) {
 				exit;
-			}
-				
+			}	
             if (empty($_POST['plugin_slug']) || empty($_POST['deactivation_reason'])) {
                 exit;
             }
-
             $reason = isset($_REQUEST['deactivation_reason']) ? trim(esc_html(stripslashes(strip_tags($_REQUEST['deactivation_reason'])))) : '';
             $filteredReason = $this->filterDeactivationReason($reason);
             $postedEmail = isset($_POST['contact_email']) && is_email(trim($_POST['contact_email'])) ? sanitize_text_field($_POST['contact_email']) : null;

@@ -374,6 +374,9 @@ class CMODSAR_Replacement {
 	 * Adds the replacements with AJAX
 	 */
 	public static function ajaxAddReplacement() {
+		if(!current_user_can('manage_options')) {
+			exit;
+		}
 		$post			 = filter_input_array( INPUT_POST );
 		$replacements	 = get_option( 'cmodsar_replacements', array() );
 
@@ -401,6 +404,9 @@ class CMODSAR_Replacement {
 	 * Updates the replacements with AJAX
 	 */
 	public static function ajaxUpdateReplacement() {
+		if(!current_user_can('manage_options')) {
+			exit;
+		}
 		$post			 = filter_input_array( INPUT_POST );
 		$replacements	 = get_option( 'cmodsar_replacements', array() );
 
@@ -430,6 +436,9 @@ class CMODSAR_Replacement {
 	 * Deletes the replacement with AJAX
 	 */
 	public static function ajaxDeleteReplacement() {
+		if(!current_user_can('manage_options')) {
+			exit;
+		}
 		$repl = get_option( 'cmodsar_replacements', array() );
 		if(isset($_POST['nonce']) && wp_verify_nonce($_POST['nonce'], 'update-options')) {
 			unset( $repl[ $_POST[ 'id' ] ] );

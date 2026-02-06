@@ -6,7 +6,7 @@ ob_end_clean();
 $cminds_plugin_config = array(
 	'plugin-is-pro'		   => false,
 	'plugin-has-addons'	   => TRUE,
-	'plugin-version'	   => '1.5.4',
+	'plugin-version'	   => '1.5.5',
 	'plugin-addons'        => array(
 		array(
 			'title' => 'Header and Footer Plugin',
